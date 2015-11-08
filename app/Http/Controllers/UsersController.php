@@ -116,6 +116,8 @@ class UsersController extends Controller
             ]);
         }
 
+        session()->flash('flash_message', 'User successfully deleted.');
+
         return response()->json();
     }
 }

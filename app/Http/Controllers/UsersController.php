@@ -50,7 +50,7 @@ class UsersController extends Controller
     {
         $this->userRepository->store($request->all());
 
-        session()->flash('flash_message', 'User successfully created.');
+        flash()->success('Success!', 'User successfully created.');
 
         return redirect()->route('users.index');
     }
@@ -92,7 +92,7 @@ class UsersController extends Controller
     {
         $this->userRepository->update($id, $request->all());
 
-        session()->flash('flash_message', 'User successfully updated.');
+        flash()->success('Success!', 'User successfully updated.');
 
         return redirect()->route('users.index');
     }
@@ -108,7 +108,8 @@ class UsersController extends Controller
         try {
             $this->userRepository->delete($id);
         } catch (Exception $ex) {
-            session()->flash('flash_message', $ex->getMessage());
+            flash()->error('Error!', $ex->getMessage());
+            
             return response()->json([
                 'error' => [
                     'message' => $ex->getMessage(),
@@ -116,7 +117,7 @@ class UsersController extends Controller
             ]);
         }
 
-        session()->flash('flash_message', 'User successfully deleted.');
+        flash()->success('Success!', 'User successfully deleted.');
 
         return response()->json();
     }

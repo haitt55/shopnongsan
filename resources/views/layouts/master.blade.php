@@ -22,6 +22,8 @@
 
     <!-- Custom CSS -->
     <link href="/assets/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/css/libs.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -68,6 +70,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/dist/js/sb-admin-2.js"></script>
+    <script src="/js/libs.js"></script>
+
+    @include('layouts.partials.flash')
 
 </body>
 

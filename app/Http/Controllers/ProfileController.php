@@ -37,7 +37,7 @@ class ProfileController extends Controller
     {
         $this->userRepository->updateProfile(auth()->user()->id, $request->all());
 
-        session()->flash('flash_message', 'Profile successfully updated.');
+        flash()->success('Success!', 'Profile successfully updated.');
 
         return redirect()->back();
     }
@@ -49,7 +49,7 @@ class ProfileController extends Controller
     public function updatePassword(UpdateProfilePasswordRequest $request) {
         $this->userRepository->updatePassword(auth()->user()->id, $request->input('password'));
 
-        session()->flash('flash_message', 'Password successfully updated.');
+        flash()->success('Success!', 'Password successfully updated.');
 
         return redirect()->back();
     }

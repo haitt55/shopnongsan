@@ -93,9 +93,6 @@
                         }
                     },
                     success: function(data) {
-                        if (data.error) {
-                            alert(data.error.message);
-                        }
                         window.location.href = '{{ URL::route('users.index') }}';
                     },
                     error: function(data) {

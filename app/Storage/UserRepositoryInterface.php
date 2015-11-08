@@ -9,5 +9,11 @@ interface UserRepositoryInterface
     public function updateProfile($id, $data);
 
     public function updatePassword($id, $password);
+
+    public function all();
+
+    public function store($data);
+
+    public function update($id, $data);
 }
 ?>

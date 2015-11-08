@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UpdateProfilePasswordRequest extends Request
+class UpdateUserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,12 @@ class UpdateProfilePasswordRequest extends Request
      */
     public function rules()
     {
+        $id = $this->route('users');
+
         return [
-            'old_password' => 'required|passcheck',
-            'password' => 'required|min:4|confirmed',
+            'name' => 'required|unique:users,name,' .  $id,
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'min:4|confirmed',
         ];
     }
 }

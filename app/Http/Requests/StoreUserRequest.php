@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UpdateProfilePasswordRequest extends Request
+class StoreUserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UpdateProfilePasswordRequest extends Request
     public function rules()
     {
         return [
-            'old_password' => 'required|passcheck',
+            'name' => 'required|unique:users,name',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:4|confirmed',
         ];
     }

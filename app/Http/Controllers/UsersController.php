@@ -108,7 +108,7 @@ class UsersController extends Controller
         try {
             $this->userRepository->delete($id);
         } catch (Exception $ex) {
-            session()->flash('flash_message', 'User unsuccessfully deleted.');
+            session()->flash('flash_message', $ex->getMessage());
             return response()->json([
                 'error' => [
                     'message' => $ex->getMessage(),

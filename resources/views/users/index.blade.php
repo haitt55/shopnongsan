@@ -77,9 +77,9 @@
     <script src="/assets/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="/assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
     $(document).ready(function() {
-        $('#dataTables-users').DataTable({
+        $("#dataTables-users").DataTable({
             responsive: true,
             "aoColumns": [
                 null,

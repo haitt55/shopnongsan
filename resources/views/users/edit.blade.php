@@ -60,6 +60,11 @@
                             </form>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('users.destroy', $user->id) }}">Delete User</button>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.panel-body -->
             </div>
@@ -68,4 +73,37 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+@endsection
+
+@section('javascript')
+    @parent
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#btn-delete").click(function() {
+            if (confirm('Do you really want to delete this data?')) {
+                var url = $(this).attr('data-link');
+                $.ajax({
+                    url : url,
+                    type : 'DELETE',
+                    beforeSend: function (xhr) {
+                        var token = $('meta[name="csrf_token"]').attr('content');
+                        if (token) {
+                              return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                        }
+                    },
+                    success: function(data) {
+                        if (data.error) {
+                            alert(data.error.message);
+                        }
+                        window.location.href = '{{ URL::route('users.index') }}';
+                    },
+                    error: function(data) {
+                        window.location.href = '{{ URL::route('users.index') }}';
+                    }
+                });
+            }
+        });
+    });
+    </script>
 @endsection

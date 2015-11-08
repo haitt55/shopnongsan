@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Controllers\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
+use Exception;
 
 class UsersController extends Controller
 {
@@ -104,6 +105,17 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->userRepository->delete($id);
+        } catch (Exception $ex) {
+            session()->flash('flash_message', 'User unsuccessfully deleted.');
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
+        }
+
+        return response()->json();
     }
 }

@@ -17,7 +17,6 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         HttpException::class,
-        ModelNotFoundException::class,
     ];
 
     /**
@@ -42,10 +41,26 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
+        switch ($e) {
+            case ($e instanceof ModelNotFoundException):
+                return $this->renderException($e);
+                break;
+            
+            default:
+                return parent::render($request, $e);
         }
+    }
 
-        return parent::render($request, $e);
+    protected function renderException($e)
+    {
+        switch ($e) {
+            case ($e instanceof ModelNotFoundException):
+                return response()->view('errors.404', [], 404);
+                break;
+            
+            default:
+                return (new SymfonyDisplayer(config('app.debug')))
+                    ->createResponse($e);
+        }
     }
 }

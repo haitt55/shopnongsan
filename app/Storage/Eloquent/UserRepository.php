@@ -4,6 +4,7 @@ namespace App\Storage\Eloquent;
 
 use App\Storage\UserRepositoryInterface;
 use App\Models\User;
+use Exception;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -57,6 +58,19 @@ class UserRepository implements UserRepositoryInterface
         $user->save();
 
         return $user;
+    }
+
+    public function delete($id)
+    {
+        if ($id == auth()->user()->id) {
+            throw new Exception('Could not delete yourself.');
+        }
+        $user = $this->findOrFail($id);
+        if ($user->name == 'admin') {
+            throw new Exception('Could not delete user "admin".');
+        }
+
+        return $user->delete();
     }
 }
 ?>

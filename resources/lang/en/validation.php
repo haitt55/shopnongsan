@@ -75,6 +75,7 @@ return [
     'timezone'             => 'The :attribute must be a valid zone.',
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
+    'passcheck'            => 'The :attribute must match.',
 
     /*
     |--------------------------------------------------------------------------
@@ -88,9 +89,9 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        // 'old_password' => [
+        //     'passcheck' => 'The old password must match.',
+        // ],
     ],
 
     /*

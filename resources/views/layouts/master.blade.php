@@ -17,15 +17,10 @@
 
     <!-- MetisMenu CSS -->
     <link href="/assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="/assets/dist/css/timeline.css" rel="stylesheet">
+    @show
 
     <!-- Custom CSS -->
     <link href="/assets/dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="/assets/bower_components/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +31,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    @show
 
 </head>
 
@@ -46,9 +40,9 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            @include('layouts.navbar')
+            @include('layouts.partials.navbar')
 
-            @include('layouts.sidebar')
+            @include('layouts.partials.sidebar')
         </nav>
 
         <!-- Page Content -->
@@ -69,10 +63,10 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="/assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    @show
 
     <!-- Custom Theme JavaScript -->
     <script src="/assets/dist/js/sb-admin-2.js"></script>
-    @show
 
 </body>
 

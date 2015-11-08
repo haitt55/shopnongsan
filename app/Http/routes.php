@@ -6,6 +6,7 @@ Route::get('auth/logout', ['uses' => 'Auth\AuthController@getLogout', 'as' => 'a
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
+    Route::get('dashboard', ['uses' => 'HomeController@index', 'as' => 'home.dashboard']);
 
     Route::get('profile/edit', ['uses' => 'ProfileController@edit', 'as' => 'profile.edit']);
     Route::put('profile/update', ['uses' => 'ProfileController@update', 'as' => 'profile.update']);

@@ -20,15 +20,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <form method="POST" action="{{ route('profile.updatePassword') }}" role="form" class="form-horizontal">
-                                @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                                @include('layouts.partials.errors')
+                                
                                 {!! csrf_field() !!}
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">

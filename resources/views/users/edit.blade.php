@@ -93,7 +93,11 @@
                         }
                     },
                     success: function(data) {
-                        window.location.href = '{{ URL::route('users.index') }}';
+                        if (data.error) {
+                            window.location.href = '{{ URL::route('users.edit', $user->id) }}';
+                        } else {
+                            window.location.href = '{{ URL::route('users.index') }}';
+                        }
                     },
                     error: function(data) {
                         window.location.href = '{{ URL::route('users.index') }}';

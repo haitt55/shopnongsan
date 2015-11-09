@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.index') }}" class="btn btn-success">Listing</a>
+            <a href="{{ route('users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
         </div>
     </div>
     <br />

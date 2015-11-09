@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.index') }}" class="btn btn-success">Listing</a>
+            <a href="{{ route('users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
         </div>
     </div>
     <br />
@@ -62,7 +62,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('users.destroy', $user->id) }}">Delete User</button>
+                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('users.destroy', $user->id) }}"><i class="fa fa-remove"></i> Delete User</button>
                         </div>
                     </div>
                 </div>

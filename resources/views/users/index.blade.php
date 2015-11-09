@@ -22,7 +22,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.create') }}" class="btn btn-success">Create</a>
+            <a href="{{ route('users.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Create</a>
         </div>
     </div>
     <br />

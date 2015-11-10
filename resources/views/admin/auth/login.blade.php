@@ -42,7 +42,7 @@
                         <h3 class="panel-title">GCMS</h3>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="{{ route('auth.postLogin') }}" role="form">
+                        <form method="POST" action="{{ route('admin.auth.postLogin') }}" role="form">
                             {!! csrf_field() !!}
                             <fieldset>
                                 <div class="form-group">

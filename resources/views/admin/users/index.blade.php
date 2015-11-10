@@ -1,6 +1,7 @@
+
 @extends('admin.layouts.master')
 
-@section('title', 'List Users')
+@section('title', 'Users')
 
 @section('css')
     @parent
@@ -22,7 +23,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> New User</a>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> New</a>
         </div>
     </div>
     <br />
@@ -30,7 +31,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Listing Users
+                    Users
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -50,7 +51,7 @@
                                             <td><a href="{{ route('admin.users.show', $user->id) }}">{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> List</a>
         </div>
     </div>
     <br />
@@ -55,14 +55,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Update User</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('admin.users.destroy', $user->id) }}"><i class="fa fa-remove"></i> Delete User</button>
+                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('admin.users.destroy', $user->id) }}"><i class="fa fa-remove"></i> Delete</button>
                         </div>
                     </div>
                 </div>

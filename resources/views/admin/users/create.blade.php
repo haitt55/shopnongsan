@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Create User')
+@section('title', 'New User')
 
 @section('content')
     <div class="row">
@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> List</a>
         </div>
     </div>
     <br />
@@ -20,7 +20,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Create User
+                    New User
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create User</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>

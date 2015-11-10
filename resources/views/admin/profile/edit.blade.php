@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title', 'Edit Profile')
 
@@ -19,21 +19,21 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="POST" action="{{ route('profile.update') }}" role="form" class="form-horizontal">
-                                @include('layouts.partials.errors')
+                            <form method="POST" action="{{ route('admin.profile.update') }}" role="form" class="form-horizontal">
+                                @include('admin.layouts.partials.errors')
                                 
                                 {!! csrf_field() !!}
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <p class="form-control-static">{{ $currentUser->name }}</p>
+                                        <input class="form-control" placeholder="Name" name="name" type="text" value="{{ old('name', $currentUser->name) }}" autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email" value="{{ old('email', $currentUser->email) }}" autofocus>
+                                        <input class="form-control" placeholder="E-mail" name="email" type="email" value="{{ old('email', $currentUser->email) }}">
                                     </div>
                                 </div>
                                 <div class="form-group">

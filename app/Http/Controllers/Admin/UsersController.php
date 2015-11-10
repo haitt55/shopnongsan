@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
 use Exception;
 
@@ -27,7 +27,7 @@ class UsersController extends Controller
     {
         $users = $this->userRepository->all();
 
-        return view('users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -37,7 +37,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class UsersController extends Controller
 
         flash()->success('Success!', 'User successfully created.');
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -65,7 +65,7 @@ class UsersController extends Controller
     {
         $user = $this->userRepository->findOrFail($id);
 
-        return view('users.edit', compact('user'));
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -78,7 +78,7 @@ class UsersController extends Controller
     {
         $user = $this->userRepository->findOrFail($id);
 
-        return view('users.edit', compact('user'));
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -94,7 +94,7 @@ class UsersController extends Controller
 
         flash()->success('Success!', 'User successfully updated.');
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**

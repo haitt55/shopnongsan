@@ -23,12 +23,10 @@ class UpdateUserRequest extends Request
      */
     public function rules()
     {
-        $id = $this->route('users');
-
         return [
-            'name' => 'required|unique:users,name,' .  $id,
-            'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'min:4|confirmed',
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $this->route('users'),
+            'password' => 'confirmed|min:6',
         ];
     }
 }

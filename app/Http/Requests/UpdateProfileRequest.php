@@ -24,7 +24,8 @@ class UpdateProfileRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . auth()->user()->id,
         ];
     }
 }

@@ -16,6 +16,7 @@ class UserRepository implements UserRepositoryInterface
     public function updateProfile($id, $data)
     {
         $user = $this->findOrFail($id);
+        $user->name = $data['name'];
         $user->email = $data['email'];
         $user->save();
 

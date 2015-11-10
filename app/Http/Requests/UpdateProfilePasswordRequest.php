@@ -25,7 +25,7 @@ class UpdateProfilePasswordRequest extends Request
     {
         return [
             'old_password' => 'required|passcheck',
-            'password' => 'required|min:4|confirmed',
+            'password' => 'required|confirmed|min:6',
         ];
     }
 }

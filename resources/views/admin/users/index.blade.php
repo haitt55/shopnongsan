@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title', 'List Users')
 
@@ -6,10 +6,10 @@
     @parent
 
     <!-- DataTables CSS -->
-    <link href="/assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/templates/admin/sbadmin2/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- DataTables Responsive CSS -->
-    <link href="/assets/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="/templates/admin/sbadmin2/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Create</a>
+            <a href="{{ route('admin.users.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> New User</a>
         </div>
     </div>
     <br />
@@ -47,10 +47,10 @@
                                     <tbody>
                                         @foreach ($users as $user)
                                         <tr>
-                                            <td><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</td>
+                                            <td><a href="{{ route('admin.users.show', $user->id) }}">{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning" title="Edit"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info" title="Edit"><i class="fa fa-edit"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -74,8 +74,8 @@
     @parent
 
     <!-- DataTables JavaScript -->
-    <script src="/assets/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+    <script src="/templates/admin/sbadmin2/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/templates/admin/sbadmin2/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function() {

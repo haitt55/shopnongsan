@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title', 'Edit User')
 
@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
         </div>
     </div>
     <br />
@@ -25,8 +25,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="POST" action="{{ route('users.update', $user->id) }}" role="form">
-                                @include('layouts.partials.errors')
+                            <form method="POST" action="{{ route('admin.users.update', $user->id) }}" role="form">
+                                @include('admin.layouts.partials.errors')
 
                                 {{ csrf_field() }}
 
@@ -62,7 +62,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('users.destroy', $user->id) }}"><i class="fa fa-remove"></i> Delete User</button>
+                            <button class="btn btn-danger" id="btn-delete" data-link="{{ route('admin.users.destroy', $user->id) }}"><i class="fa fa-remove"></i> Delete User</button>
                         </div>
                     </div>
                 </div>
@@ -94,13 +94,13 @@
                     },
                     success: function(data) {
                         if (data.error) {
-                            window.location.href = '{{ URL::route('users.edit', $user->id) }}';
+                            window.location.href = '{{ URL::route('admin.users.edit', $user->id) }}';
                         } else {
-                            window.location.href = '{{ URL::route('users.index') }}';
+                            window.location.href = '{{ URL::route('admin.users.index') }}';
                         }
                     },
                     error: function(data) {
-                        window.location.href = '{{ URL::route('users.index') }}';
+                        window.location.href = '{{ URL::route('admin.users.index') }}';
                     }
                 });
             }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateProfilePasswordRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
 
 class ProfileController extends Controller
@@ -24,7 +24,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile.edit');
+        return view('admin.profile.edit');
     }
 
     /**
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     }
 
     public function editPassword() {
-        return view('profile.editPassword');
+        return view('admin.profile.editPassword');
     }
 
     public function updatePassword(UpdateProfilePasswordRequest $request) {

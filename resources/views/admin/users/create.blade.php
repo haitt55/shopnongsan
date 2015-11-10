@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 
 @section('title', 'Create User')
 
@@ -12,7 +12,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
+            <a href="{{ route('admin.users.index') }}" class="btn btn-success"><i class="fa fa-list"></i> Listing</a>
         </div>
     </div>
     <br />
@@ -25,8 +25,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form method="POST" action="{{ route('users.store') }}" role="form">
-                                @include('layouts.partials.errors')
+                            <form method="POST" action="{{ route('admin.users.store') }}" role="form">
+                                @include('admin.layouts.partials.errors')
 
                                 {{ csrf_field() }}
 

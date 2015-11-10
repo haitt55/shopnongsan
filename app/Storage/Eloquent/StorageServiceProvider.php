@@ -13,8 +13,8 @@ class StorageServiceProvider extends ServiceProvider
             'App\Storage\Eloquent\UserRepository'
         );
         $this->app->bind(
-            'App\Storage\CategoryRepositoryInterface',
-            'App\Storage\Eloquent\CategoryRepository'
+            'App\Storage\PageRepositoryInterface',
+            'App\Storage\Eloquent\PageRepository'
         );
     }
 }

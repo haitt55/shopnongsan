@@ -14,16 +14,15 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Profile
+                    Edit Profile
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
                             <form method="POST" action="{{ route('admin.profile.update') }}" role="form" class="form-horizontal">
                                 @include('admin.layouts.partials.errors')
-                                
                                 {!! csrf_field() !!}
-                                <input type="hidden" name="_method" value="PUT">
+                                {!! method_field('put') !!}
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Name</label>
                                     <div class="col-sm-9">
@@ -38,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </form>

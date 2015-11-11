@@ -12,22 +12,6 @@ class PageRepository implements PageRepositoryInterface
         return Page::findOrFail($id);
     }
 
-    public function updateProfile($id, $data)
-    {
-        $page = $this->findOrFail($id);
-        $page->save();
-
-        return $page;
-    }
-
-    public function updatePassword($id, $password)
-    {
-        $page = $this->findOrFail($id);
-        $page->save();
-
-        return $page;
-    }
-
     public function all()
     {
         return Page::all();
@@ -35,8 +19,7 @@ class PageRepository implements PageRepositoryInterface
 
     public function store($data)
     {
-        $page = new Page();
-        $page->save();
+        $page = Page::create($data);
 
         return $page;
     }
@@ -44,7 +27,7 @@ class PageRepository implements PageRepositoryInterface
     public function update($id, $data)
     {
         $page = $this->findOrFail($id);
-        $page->save();
+        $page->update($data);
 
         return $page;
     }

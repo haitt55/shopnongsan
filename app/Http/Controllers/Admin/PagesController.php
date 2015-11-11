@@ -7,6 +7,7 @@ use App\Http\Requests\StorePageRequest;
 use App\Http\Requests\UpdatePageRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\PageRepositoryInterface as PageRepository;
+use Exception;
 
 class PagesController extends Controller
 {
@@ -47,7 +48,11 @@ class PagesController extends Controller
      */
     public function store(StorePageRequest $request)
     {
-        
+        $this->pageRepository->store($request->all());
+
+        flash()->success('Success!', 'Page successfully created.');
+
+        return redirect()->route('admin.pages.index');
     }
 
     /**
@@ -58,7 +63,9 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $page = $this->pageRepository->findOrFail($id);
+
+        return view('admin.pages.edit', compact('page'));
     }
 
     /**
@@ -69,7 +76,9 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = $this->pageRepository->findOrFail($id);
+
+        return view('admin.pages.edit', compact('page'));
     }
 
     /**
@@ -81,7 +90,11 @@ class PagesController extends Controller
      */
     public function update(UpdatePageRequest $request, $id)
     {
-        //
+        $this->pageRepository->update($id, $request->all());
+
+        flash()->success('Success!', 'Page successfully updated.');
+
+        return redirect()->route('admin.pages.index');
     }
 
     /**
@@ -92,6 +105,20 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->pageRepository->delete($id);
+        } catch (Exception $ex) {
+            flash()->error('Error!', $ex->getMessage());
+            
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
+        }
+
+        flash()->success('Success!', 'Page successfully deleted.');
+
+        return response()->json();
     }
 }

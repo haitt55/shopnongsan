@@ -35,7 +35,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

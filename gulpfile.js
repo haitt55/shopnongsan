@@ -15,8 +15,10 @@ elixir(function(mix) {
     mix.sass('app.scss')
        .scripts([
             'libs/sweetalert-dev.js',
+            'libs/summernote.js'
         ], './public/js/libs.js')
        .styles([
-            'libs/sweetalert.css'
+            'libs/sweetalert.css',
+            'libs/summernote.css'
         ], './public/css/libs.css');
 });

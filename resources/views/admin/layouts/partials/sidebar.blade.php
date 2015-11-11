@@ -11,7 +11,7 @@
                 <a href="{{ route('admin.articles.index') }}"><i class="fa fa-tag fa-fw"></i> Articles</a>
             </li>
             <li>
-                <a href="{{ route('admin.contacts.index') }}"><i class="fa fa-envelope-o fa-fw"></i> Contacts</a>
+                <a href="{{ route('admin.messages.index') }}"><i class="fa fa-envelope-o fa-fw"></i> Messages</a>
             </li>
             <li>
                 <a href="{{ route('admin.users.index') }}"><i class="fa fa-user fa-fw"></i> Users</a>

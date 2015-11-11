@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::resource('users', 'UsersController');
         Route::resource('pages', 'PagesController');
         Route::resource('articles', 'ArticlesController');
-        Route::resource('contacts', 'ContactsController', ['only' => ['index', 'show', 'destroy']]);
+        Route::resource('messages', 'MessagesController', ['only' => ['index', 'show', 'destroy']]);
 
         Route::get('settings/general', ['uses' => 'SettingsController@general', 'as' => 'admin.settings.general']);
         Route::put('settings/general', ['uses' => 'SettingsController@updateGeneral', 'as' => 'admin.settings.updateGeneral']);

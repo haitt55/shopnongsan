@@ -30,3 +30,16 @@ $factory->define(App\Models\Page::class, function (Faker\Generator $faker) {
         'published' => $faker->boolean(),
     ];
 });
+
+$factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence(),
+        'excerpt' => $faker->paragraph(),
+        'content' => $faker->paragraph(),
+        'author_id' => $faker->randomElement(App\Models\User::lists('id')->toArray()),
+        'page_title' => $faker->sentence(),
+        'meta_keyword' => implode(',', $faker->words()),
+        'meta_description' => $faker->text(),
+        'published' => $faker->boolean(),
+    ];
+});

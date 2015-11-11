@@ -17,11 +17,12 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('excerpt')->nullable();
             $table->mediumText('content')->nullable();
-            $table->integer('user_id');
+            $table->integer('author_id');
             $table->string('page_title', 70)->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description', 160)->nullable();
             $table->boolean('published')->default(true);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

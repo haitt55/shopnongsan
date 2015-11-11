@@ -22,8 +22,6 @@ class CreateArticlesTable extends Migration
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description', 160)->nullable();
             $table->boolean('published')->default(true);
-            $table->dateTime('published_date')->nullable();
-            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

@@ -22,7 +22,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('admin.pages.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> New</a>
+            <a href="{{ route('admin.pages.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add page</a>
         </div>
     </div>
     <br />
@@ -40,8 +40,8 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Active</th>
-                                            <th>Last Update</th>
+                                            <th>Visibility</th>
+                                            <th>Last Modified</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -49,7 +49,7 @@
                                         @foreach ($pages as $page)
                                         <tr>
                                             <td><a href="{{ route('admin.pages.show', $page->id) }}">{{ $page->title }}</td>
-                                            <td><span class="label label-{{ $page->active ? 'success' : 'default' }}">{{ $page->active ? 'Active' : 'Inactive' }}</span></td>
+                                            <td><span class="label label-{{ $page->published ? 'success' : 'default' }}">{{ $page->published ? 'Visible' : 'Hidden' }}</span></td>
                                             <td>{{ $page->updated_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>

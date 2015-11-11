@@ -3,16 +3,10 @@
 namespace App\Storage\Eloquent;
 
 use App\Storage\UserRepositoryInterface;
-use App\Models\User;
 use Exception;
 
-class UserRepository implements UserRepositoryInterface
+class UserRepository extends Repository implements UserRepositoryInterface
 {
-    public function findOrFail($id)
-    {
-        return User::findOrFail($id);
-    }
-
     public function updateProfile($id, $data)
     {
         $user = $this->findOrFail($id);
@@ -32,20 +26,14 @@ class UserRepository implements UserRepositoryInterface
         return $user;
     }
 
-    public function all()
+    public function create($data)
     {
-        return User::all();
-    }
+        $this->model->name = $data['name'];
+        $this->model->email = $data['email'];
+        $this->model->password = bcrypt($data['password']);
+        $this->model->save();
 
-    public function store($data)
-    {
-        $user = new User();
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['password']);
-        $user->save();
-
-        return $user;
+        return $this->model;
     }
 
     public function update($id, $data)

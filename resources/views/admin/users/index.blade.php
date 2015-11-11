@@ -41,6 +41,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Last Modified</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -49,6 +50,7 @@
                                         <tr>
                                             <td><a href="{{ route('admin.users.show', $user->id) }}">{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->updated_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
                                             </td>
@@ -81,7 +83,9 @@
     $(document).ready(function() {
         $("#dataTables-users").DataTable({
             responsive: true,
+            "order": [[ 2, "desc" ]],
             "aoColumns": [
+                null,
                 null,
                 null,
                 { bSortable: false }

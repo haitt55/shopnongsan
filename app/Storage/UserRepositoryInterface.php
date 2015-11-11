@@ -2,20 +2,10 @@
 
 namespace App\Storage;
 
-interface UserRepositoryInterface
-{
-    public function findOrFail($id);
-    
+interface UserRepositoryInterface extends RepositoryInterface
+{    
     public function updateProfile($id, $data);
 
     public function updatePassword($id, $password);
-
-    public function all();
-
-    public function store($data);
-
-    public function update($id, $data);
-
-    public function delete($id);
 }
 ?>

@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
 use Exception;
@@ -46,9 +45,9 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(UserRequest $request)
     {
-        $this->userRepository->store($request->all());
+        $this->userRepository->create($request->all());
 
         flash()->success('Success!', 'User successfully created.');
 
@@ -88,7 +87,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(UserRequest $request, $id)
     {
         $this->userRepository->update($id, $request->all());
 

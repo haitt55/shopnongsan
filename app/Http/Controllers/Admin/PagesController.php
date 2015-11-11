@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StorePageRequest;
-use App\Http\Requests\UpdatePageRequest;
+use App\Http\Requests\PageRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\PageRepositoryInterface as PageRepository;
 use Exception;
@@ -46,9 +45,9 @@ class PagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePageRequest $request)
+    public function store(PageRequest $request)
     {
-        $this->pageRepository->store($request->all());
+        $this->pageRepository->create($request->all());
 
         flash()->success('Success!', 'Page successfully created.');
 
@@ -88,7 +87,7 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePageRequest $request, $id)
+    public function update(PageRequest $request, $id)
     {
         $this->pageRepository->update($id, $request->all());
 

@@ -83,6 +83,7 @@
     $(document).ready(function() {
         $("#dataTables-pages").DataTable({
             responsive: true,
+            "order": [[ 2, "desc" ]],
             "aoColumns": [
                 null,
                 null,

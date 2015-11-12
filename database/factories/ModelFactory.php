@@ -43,3 +43,12 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
         'published' => $faker->boolean(),
     ];
 });
+
+$factory->define(App\Models\Message::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'phone_number' => $faker->phoneNumber,
+        'content' => $faker->paragraph(),
+    ];
+});

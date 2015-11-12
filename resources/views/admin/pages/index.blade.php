@@ -40,7 +40,6 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Visibility</th>
                                             <th>Last Modified</th>
                                             <th></th>
                                         </tr>
@@ -49,7 +48,6 @@
                                         @foreach ($pages as $page)
                                         <tr>
                                             <td><a href="{{ route('admin.pages.show', $page->id) }}">{{ $page->title }}</td>
-                                            <td><span class="label label-{{ $page->published ? 'success' : 'default' }}">{{ $page->published ? 'Visible' : 'Hidden' }}</span></td>
                                             <td>{{ $page->updated_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.pages.edit', $page->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
@@ -78,16 +76,16 @@
     <!-- DataTables JavaScript -->
     <script src="/templates/admin/sbadmin2/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="/templates/admin/sbadmin2/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+@endsection
 
+@section('inline_scripts')
     <script type="text/javascript">
     $(document).ready(function() {
         $("#dataTables-pages").DataTable({
             responsive: true,
-            "order": [[ 2, "desc" ]],
+            "order": [[ 1, "desc" ]],
             "aoColumns": [
-                null,
-                null,
-                null,
+                null, null,
                 { bSortable: false }
             ]
         });

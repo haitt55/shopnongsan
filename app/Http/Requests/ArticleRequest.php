@@ -23,6 +23,8 @@ class ArticleRequest extends Request
      */
     public function rules()
     {
+        $this->merge(['published' => $this->input('published', 0)]);
+        
         return [
             'title' => 'required|max:255',
         ];

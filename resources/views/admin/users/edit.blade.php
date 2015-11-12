@@ -67,9 +67,7 @@
     <!-- /.row -->
 @endsection
 
-@section('javascript')
-    @parent
-
+@section('inline_scripts')
     <script type="text/javascript">
     $(document).ready(function() {
         $("#btn-delete").click(function() {
@@ -81,7 +79,7 @@
                     beforeSend: function (xhr) {
                         var token = $('meta[name="csrf_token"]').attr('content');
                         if (token) {
-                              return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                            return xhr.setRequestHeader('X-CSRF-TOKEN', token);
                         }
                     },
                     success: function(data) {

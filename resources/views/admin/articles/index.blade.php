@@ -42,7 +42,6 @@
                                             <th></th>
                                             <th>Title</th>
                                             <th>Author</th>
-                                            <th>Visibility</th>
                                             <th>Last Modified</th>
                                             <th></th>
                                         </tr>
@@ -53,7 +52,6 @@
                                             <td></td>
                                             <td><a href="{{ route('admin.articles.show', $article->id) }}">{{ $article->title }}</td>
                                             <td>{{ $article->author->name or '' }}</td>
-                                            <td><span class="label label-{{ $article->published ? 'success' : 'default' }}">{{ $article->published ? 'Visible' : 'Hidden' }}</span></td>
                                             <td>{{ $article->updated_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.articles.edit', $article->id) }}" class="btn btn-info"><i class="fa fa-edit"></i> Edit</a>
@@ -82,18 +80,17 @@
     <!-- DataTables JavaScript -->
     <script src="/templates/admin/sbadmin2/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="/templates/admin/sbadmin2/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+@endsection
 
+@section('inline_scripts')
     <script type="text/javascript">
     $(document).ready(function() {
         $("#dataTables-articles").DataTable({
             responsive: true,
-            "order": [[ 4, "desc" ]],
+            "order": [[ 3, "desc" ]],
             "aoColumns": [
                 { bSortable: false },
-                null,
-                null,
-                null,
-                null,
+                null, null, null,
                 { bSortable: false }
             ]
         });

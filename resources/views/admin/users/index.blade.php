@@ -78,16 +78,16 @@
     <!-- DataTables JavaScript -->
     <script src="/templates/admin/sbadmin2/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="/templates/admin/sbadmin2/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+@endsection
 
+@section('inline_scripts')
     <script type="text/javascript">
     $(document).ready(function() {
         $("#dataTables-users").DataTable({
             responsive: true,
             "order": [[ 2, "desc" ]],
             "aoColumns": [
-                null,
-                null,
-                null,
+                null, null, null,
                 { bSortable: false }
             ]
         });

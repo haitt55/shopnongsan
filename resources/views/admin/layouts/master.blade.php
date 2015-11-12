@@ -72,6 +72,8 @@
     <script src="/templates/admin/sbadmin2/dist/js/sb-admin-2.js"></script>
     <script src="/js/libs.js"></script>
 
+    @yield('inline_scripts')
+
     @include('admin.layouts.partials.flash')
 
 </body>

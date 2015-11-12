@@ -18,5 +18,6 @@ class UserTableSeeder extends Seeder
             'email' => 'cuong@gtk.vn',
             'password' => bcrypt('1234'),
         ]);
+        factory(User::class, 50)->create();
     }
 }

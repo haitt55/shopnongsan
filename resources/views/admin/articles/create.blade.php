@@ -81,9 +81,7 @@
     <!-- /.row -->
 @endsection
 
-@section('javascript')
-    @parent
-
+@section('inline_scripts')
     <script type="text/javascript">
     $(document).ready(function() {
         $('#excerpt').summernote({

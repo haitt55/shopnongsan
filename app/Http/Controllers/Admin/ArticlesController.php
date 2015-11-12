@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\ArticleRepositoryInterface as ArticleRepository;
 
@@ -45,9 +44,13 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        //
+        $this->articleRepository->create($request->all());
+
+        flash()->success('Success!', 'Article successfully created.');
+
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -58,7 +61,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = $this->articleRepository->findOrFail($id);
+
+        return view('admin.articles.edit', compact('article'));
     }
 
     /**
@@ -69,7 +74,9 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = $this->articleRepository->findOrFail($id);
+
+        return view('admin.articles.edit', compact('article'));
     }
 
     /**
@@ -79,9 +86,13 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticleRequest $request, $id)
     {
-        //
+        $this->articleRepository->update($id, $request->all());
+
+        flash()->success('Success!', 'Article successfully updated.');
+
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -92,6 +103,20 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->articleRepository->delete($id);
+        } catch (Exception $ex) {
+            flash()->error('Error!', $ex->getMessage());
+            
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
+        }
+
+        flash()->success('Success!', 'Article successfully deleted.');
+
+        return response()->json();
     }
 }

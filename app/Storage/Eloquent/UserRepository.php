@@ -58,6 +58,9 @@ class UserRepository extends Repository implements UserRepositoryInterface
         if ($user->name == 'admin') {
             throw new Exception('Could not delete user "admin".');
         }
+        if ($user->articles()->count() > 0) {
+            throw new Exception('Could not delete user has articles.');
+        }
 
         return $user->delete();
     }

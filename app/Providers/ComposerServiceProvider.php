@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', 'App\Http\ViewComposers\GlobalComposer');
-        view()->composer(['admin.articles.create', 'admin.articles.edit'], 'App\Http\ViewComposers\ArticlesComposer');
+        view()->composer(['admin.articles.create', 'admin.articles.edit'], 'App\Http\ViewComposers\UsersComposer');
     }
 
     /**

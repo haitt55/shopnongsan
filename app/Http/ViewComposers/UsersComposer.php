@@ -5,7 +5,7 @@ namespace App\Http\ViewComposers;
 use Illuminate\Contracts\View\View;
 use App\Storage\UserRepositoryInterface as UserRepository;
 
-class ArticlesComposer
+class UsersComposer
 {
     protected $user;
 

@@ -19,7 +19,7 @@ class AppSettingsController extends Controller
     {
         $appSettings = $this->appSettingRepository->all();
 
-        return view('appSettings.general', compact('appSettings'));
+        return view('admin.appSettings.general', compact('appSettings'));
     }
 
     public function updateGeneral(Request $request)

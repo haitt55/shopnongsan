@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\ViewComposers;
+namespace App\Http\ViewComposers\Admin;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Auth\Guard;

@@ -20,7 +20,7 @@
                                 <i class="fa fa-file-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
+                                <div class="huge">{{ $countPages }}</div>
                                 <div>Pages</div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 <i class="fa fa-tag fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">{{ $countArticles }}</div>
                                 <div>Articles</div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <i class="fa fa-envelope-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
+                                <div class="huge">{{ $countMessages }}</div>
                                 <div>New Messages!</div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
+                                <div class="huge">{{ $countUsers }}</div>
                                 <div>Users</div>
                             </div>
                         </div>

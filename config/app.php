@@ -145,7 +145,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         App\Storage\Eloquent\StorageServiceProvider::class,
         App\Providers\ValidatorServiceProvider::class,
 

@@ -21,7 +21,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 text-right">
             <a href="{{ route('admin.pages.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add page</a>
         </div>
     </div>

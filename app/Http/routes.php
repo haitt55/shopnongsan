@@ -20,7 +20,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::resource('articles', 'ArticlesController');
         Route::resource('messages', 'MessagesController', ['only' => ['index', 'show', 'destroy']]);
 
-        Route::get('settings/general', ['uses' => 'SettingsController@general', 'as' => 'admin.settings.general']);
-        Route::put('settings/general', ['uses' => 'SettingsController@updateGeneral', 'as' => 'admin.settings.updateGeneral']);
+        Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);
+        Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
     });
 });

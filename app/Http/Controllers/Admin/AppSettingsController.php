@@ -17,13 +17,17 @@ class AppSettingsController extends Controller
 
     public function general()
     {
-        $appSettings = $this->appSettingRepository->lists();
+        $appSettings = $this->appSettingRepository->all();
 
         return view('appSettings.general', compact('appSettings'));
     }
 
-    public function updateGeneral()
+    public function updateGeneral(Request $request)
     {
+        $this->appSettingRepository->merge($request->all());
 
+        flash()->success('Success!', 'App Settings successfully updated.');
+
+        return redirect()->route('admin.appSettings.general');
     }
 }

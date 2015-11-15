@@ -6,7 +6,7 @@ use App\Models\BaseModel;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Article extends BaseModel
+class Article extends BaseModel implements SluggableInterface
 {
     use SluggableTrait;
     
@@ -16,6 +16,11 @@ class Article extends BaseModel
         'title', 'excerpt', 'content', 'author_id', 'page_title', 'meta_keyword', 
         'meta_description', 'published'
     ];
+
+    public function scopeBySlug($query, $slug)
+    {
+        return $query->whereSlug($slug)->first();
+    }
 
     public function author()
     {

@@ -22,7 +22,7 @@
                 <small>{{ date('d/m/Y', strtotime($article->created_at)) }}</small>
             </h2>
             <p>{{ $article->excerpt }}</p>
-            <a href="{{ route('articles.show', $article->id) }}" class="btn btn-default btn-lg">Read More</a>
+            <a href="{{ route('articles.show', $article->slug) }}" class="btn btn-default btn-lg">Read More</a>
             <hr>
         </div>
         @endforeach

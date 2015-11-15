@@ -29,9 +29,9 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles'));
     }
 
-    public function show($title, $id)
+    public function show($slug)
     {
-        $article = $this->articleRepository->findOrFail($id);
+        $article = $this->articleRepository->findBySlug($slug);
 
         return view('articles.show', compact('article'));
     }

@@ -88,7 +88,7 @@ class AppSettingRepository implements AppSettingRepositoryInterface
     protected function persist()
     {
         foreach ($this->settings as $key => $value) {
-            $appSetting = $this->model->key($key)->update(['value' => $value]);
+            $appSetting = $this->model->byKey($key)->update(['value' => $value]);
         }
     }
 

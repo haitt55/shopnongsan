@@ -8,7 +8,7 @@ class AppSetting extends BaseModel
 {
     protected $table = 'app_settings';
 
-    public function scopeKey($query, $key)
+    public function scopeByKey($query, $key)
     {
         return $query->whereKey($key);
     }

@@ -21,12 +21,8 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Page::class, function (Faker\Generator $faker) {
-    $title = $faker->sentence;
-    $slug = str_slug($title);
-
     return [
-        'title' => $title,
-        'slug' => $slug,
+        'title' => $faker->sentence,
         'content' => $faker->paragraph(),
         'page_title' => $faker->sentence(),
         'meta_keyword' => implode(',', $faker->words()),
@@ -36,12 +32,8 @@ $factory->define(App\Models\Page::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
-    $title = $faker->sentence;
-    $slug = str_slug($title);
-
     return [
-        'title' => $title,
-        'slug' => $slug,
+        'title' => $faker->sentence,
         'excerpt' => $faker->paragraph(),
         'content' => $faker->paragraph(),
         'author_id' => $faker->randomElement(App\Models\User::lists('id')->toArray()),

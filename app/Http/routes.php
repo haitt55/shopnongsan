@@ -24,3 +24,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::put('appSettings/general', ['uses' => 'AppSettingsController@updateGeneral', 'as' => 'admin.appSettings.updateGeneral']);
     });
 });
+
+// Web
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);

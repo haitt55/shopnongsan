@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" name="published" id="published" value="1"{{ old('published') ? ' checked="checked"' : '' }}> Visible</label>
+                                        <label><input type="checkbox" name="published" id="published" value="1"{{ old('published', true) ? ' checked="checked"' : '' }}> Visible</label>
                                     </div>
                                 </div>
                                 <div class="form-group">

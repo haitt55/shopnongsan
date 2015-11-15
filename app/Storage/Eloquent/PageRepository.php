@@ -8,7 +8,7 @@ class PageRepository extends Repository implements PageRepositoryInterface
 {
     public function findBySlug($slug)
     {
-        return $this->model->bySlug($slug);
+        return $this->model->bySlug($slug)->firstOrFail();
     }
 }
 ?>

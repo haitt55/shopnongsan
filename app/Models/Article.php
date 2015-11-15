@@ -19,7 +19,7 @@ class Article extends BaseModel implements SluggableInterface
 
     public function scopeBySlug($query, $slug)
     {
-        return $query->whereSlug($slug)->first();
+        return $query->whereSlug($slug);
     }
 
     public function author()

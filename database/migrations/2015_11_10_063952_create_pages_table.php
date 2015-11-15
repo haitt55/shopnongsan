@@ -20,7 +20,6 @@ class CreatePagesTable extends Migration
             $table->string('page_title', 70)->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('meta_description', 160)->nullable();
-            $table->string('handle')->nullable();
             $table->boolean('published')->default(true);
             $table->timestamps();
         });

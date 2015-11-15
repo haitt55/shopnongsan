@@ -49,10 +49,6 @@
                                     <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="handle">Handle</label>
-                                    <input type="text" name="handle" id="handle" class="form-control" value="{{ old('handle') }}">
-                                </div>
-                                <div class="form-group">
                                     <div class="checkbox">
                                         <label><input type="checkbox" name="published" id="published" value="1"{{ old('published', true) ? ' checked="checked"' : '' }}> Visible</label>
                                     </div>

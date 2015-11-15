@@ -8,7 +8,7 @@ class ArticleRepository extends Repository implements ArticleRepositoryInterface
 {
     public function findBySlug($slug)
     {
-        return $this->model->findBySlug($slug);
+        return $this->model->bySlug($slug)->firstOrFail();
     }
 }
 ?>

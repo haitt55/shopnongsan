@@ -13,12 +13,11 @@ class Page extends BaseModel implements SluggableInterface
     protected $table = 'pages';
     
     protected $fillable = [
-        'title', 'content', 'page_title', 'meta_keyword', 'meta_description',
-        'handle', 'published'
+        'title', 'content', 'page_title', 'meta_keyword', 'meta_description', 'published'
     ];
 
     public function scopeBySlug($query, $slug)
     {
-        return $query->whereSlug($slug)->first();
+        return $query->whereSlug($slug);
     }
 }

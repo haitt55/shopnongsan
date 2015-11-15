@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
 class Article extends BaseModel
 {
+    use SluggableTrait;
+    
     protected $table = 'articles';
 
     protected $fillable = [

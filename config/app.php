@@ -148,6 +148,7 @@ return [
         App\Providers\ViewComposerServiceProvider::class,
         App\Storage\Eloquent\StorageServiceProvider::class,
         App\Providers\ValidatorServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
 
     ],
 

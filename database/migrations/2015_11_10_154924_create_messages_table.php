@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
             $table->string('email');
             $table->string('phone_number')->nullable();
             $table->mediumText('content')->nullable();
+            $table->boolean('unread')->default(true);
             $table->timestamps();
         });
     }

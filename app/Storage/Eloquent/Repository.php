@@ -31,7 +31,10 @@ abstract class Repository implements RepositoryInterface
 
     public function update($id, $data)
     {
-        return $this->findOrFail($id)->update($data);
+        $model = $this->findOrFail($id);
+        $model->update($data);
+
+        return $model;
     }
 
     public function delete($id)

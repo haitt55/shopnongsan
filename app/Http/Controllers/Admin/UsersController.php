@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
+use App\Events\User\WasCreated as UserWasCreated;
+use App\Events\User\WasUpdated as UserWasUpdated;
+use App\Events\User\WasDeleted as UserWasDeleted;
+use App\Events\ExceptionOccurred;
 use Exception;
 
 class UsersController extends Controller
@@ -47,9 +51,9 @@ class UsersController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $this->userRepository->create($request->all());
+        $user = $this->userRepository->create($request->all());
 
-        flash()->success('Success!', 'User successfully created.');
+        event(new UserWasCreated($user));
 
         return redirect()->route('admin.users.index');
     }
@@ -89,9 +93,9 @@ class UsersController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        $this->userRepository->update($id, $request->all());
+        $user = $this->userRepository->update($id, $request->all());
 
-        flash()->success('Success!', 'User successfully updated.');
+        event(new UserWasUpdated($user));
 
         return redirect()->route('admin.users.index');
     }
@@ -107,7 +111,7 @@ class UsersController extends Controller
         try {
             $this->userRepository->delete($id);
         } catch (Exception $ex) {
-            flash()->error('Error!', $ex->getMessage());
+            event(new ExceptionOccurred($ex));
             
             return response()->json([
                 'error' => [
@@ -116,7 +120,7 @@ class UsersController extends Controller
             ]);
         }
 
-        flash()->success('Success!', 'User successfully deleted.');
+        event(new UserWasDeleted());
 
         return response()->json();
     }

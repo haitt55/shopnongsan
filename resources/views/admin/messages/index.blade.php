@@ -36,6 +36,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone Number</th>
+                                            <th>Status</th>
                                             <th>Date</th>
                                             <th></th>
                                         </tr>
@@ -46,6 +47,13 @@
                                             <td><a href="{{ route('admin.messages.show', $message->id) }}">{{ $message->name }}</td>
                                             <td>{{ $message->email }}</td>
                                             <td>{{ $message->phone_number }}</td>
+                                            <td>
+                                                @if ($message->unread)
+                                                <span class="label label-success">Unread</span>
+                                                @else
+                                                <span class="label label-default">Read</span>
+                                                @endif
+                                            </td>
                                             <td>{{ $message->updated_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.messages.show', $message->id) }}" class="btn btn-info" title="Show"><i class="fa fa-info"></i></a>
@@ -81,9 +89,9 @@
     $(document).ready(function() {
         $("#dataTables-messages").DataTable({
             responsive: true,
-            "order": [[ 1, "desc" ]],
+            "order": [[ 4, "desc" ]],
             "aoColumns": [
-                null, null, null, null,
+                null, null, null, null, null,
                 {bSortable: false}
             ]
         });

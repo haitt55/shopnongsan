@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\AppSettingRepositoryInterface as AppSettingRepository;
+use App\Events\AppSetting\WasUpdated as AppSettingWasUpdated;
 
 class AppSettingsController extends Controller
 {
@@ -26,7 +27,7 @@ class AppSettingsController extends Controller
     {
         $this->appSettingRepository->merge($request->all());
 
-        flash()->success('Success!', 'App Settings successfully updated.');
+        event(new AppSettingWasUpdated());
 
         return redirect()->route('admin.appSettings.general');
     }

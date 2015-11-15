@@ -39,7 +39,7 @@ class HomeComposer
     {
         $view->with('countPages', $this->page->all()->count());
         $view->with('countArticles', $this->article->all()->count());
-        $view->with('countMessages', $this->message->all()->count());
+        $view->with('countMessages', $this->message->unread()->count());
         $view->with('countUsers', $this->user->all()->count());
     }
 }

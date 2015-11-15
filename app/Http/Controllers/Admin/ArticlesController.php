@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\ArticleRepositoryInterface as ArticleRepository;
+use App\Events\Article\WasCreated as ArticleWasCreated;
+use App\Events\Article\WasUpdated as ArticleWasUpdated;
+use App\Events\Article\WasDeleted as ArticleWasDeleted;
+use App\Events\ExceptionOccurred;
+use Exception;
 
 class ArticlesController extends Controller
 {
@@ -46,9 +51,9 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-        $this->articleRepository->create($request->all());
+        $article = $this->articleRepository->create($request->all());
 
-        flash()->success('Success!', 'Article successfully created.');
+        event(new ArticleWasCreated($article));
 
         return redirect()->route('admin.articles.index');
     }
@@ -88,9 +93,9 @@ class ArticlesController extends Controller
      */
     public function update(ArticleRequest $request, $id)
     {
-        $this->articleRepository->update($id, $request->all());
+        $article = $this->articleRepository->update($id, $request->all());
 
-        flash()->success('Success!', 'Article successfully updated.');
+        event(new ArticleWasUpdated($article));
 
         return redirect()->route('admin.articles.index');
     }
@@ -106,7 +111,7 @@ class ArticlesController extends Controller
         try {
             $this->articleRepository->delete($id);
         } catch (Exception $ex) {
-            flash()->error('Error!', $ex->getMessage());
+            event(new ExceptionOccurred($ex));
             
             return response()->json([
                 'error' => [
@@ -115,7 +120,7 @@ class ArticlesController extends Controller
             ]);
         }
 
-        flash()->success('Success!', 'Article successfully deleted.');
+        event(new ArticleWasDeleted());
 
         return response()->json();
     }

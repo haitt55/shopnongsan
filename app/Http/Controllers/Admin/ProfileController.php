@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateProfilePasswordRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\UserRepositoryInterface as UserRepository;
+use App\Events\User\ProfileWasUpdated;
+use App\Events\User\ProfilePasswordWasUpdated;
 
 class ProfileController extends Controller
 {
@@ -37,7 +39,7 @@ class ProfileController extends Controller
     {
         $this->userRepository->updateProfile(auth()->user()->id, $request->all());
 
-        flash()->success('Success!', 'Profile successfully updated.');
+        event(new ProfileWasUpdated());
 
         return redirect()->back();
     }
@@ -49,7 +51,7 @@ class ProfileController extends Controller
     public function updatePassword(UpdateProfilePasswordRequest $request) {
         $this->userRepository->updatePassword(auth()->user()->id, $request->input('password'));
 
-        flash()->success('Success!', 'Password successfully updated.');
+        event(new ProfilePasswordWasUpdated());
 
         return redirect()->back();
     }

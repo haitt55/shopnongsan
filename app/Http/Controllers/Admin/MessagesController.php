@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\MessageRepositoryInterface as MessageRepository;
+use App\Events\Message\WasRead as MessageWasRead;
+use App\Events\Message\WasDeleted as MessageWasDeleted;
+use App\Events\ExceptionOccurred;
+use Exception;
 
 class MessagesController extends Controller
 {
@@ -38,6 +42,8 @@ class MessagesController extends Controller
     {
         $message = $this->messageRepository->findOrFail($id);
 
+        event(new MessageWasRead($message));
+
         return view('admin.messages.show', compact('message'));
     }
 
@@ -52,7 +58,7 @@ class MessagesController extends Controller
         try {
             $this->messageRepository->delete($id);
         } catch (Exception $ex) {
-            flash()->error('Error!', $ex->getMessage());
+            event(new ExceptionOccurred($ex));
             
             return response()->json([
                 'error' => [
@@ -61,7 +67,7 @@ class MessagesController extends Controller
             ]);
         }
 
-        flash()->success('Success!', 'Message successfully deleted.');
+        event(new MessageWasDeleted());
 
         return response()->json();
     }

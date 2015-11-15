@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PageRequest;
 use App\Http\Controllers\Admin\Controller;
 use App\Storage\PageRepositoryInterface as PageRepository;
+use App\Events\Page\WasCreated as PageWasCreated;
+use App\Events\Page\WasUpdated as PageWasUpdated;
+use App\Events\Page\WasDeleted as PageWasDeleted;
+use App\Events\ExceptionOccurred;
 use Exception;
 
 class PagesController extends Controller
@@ -47,9 +51,9 @@ class PagesController extends Controller
      */
     public function store(PageRequest $request)
     {
-        $this->pageRepository->create($request->all());
+        $page = $this->pageRepository->create($request->all());
 
-        flash()->success('Success!', 'Page successfully created.');
+        event(new PageWasCreated($page));
 
         return redirect()->route('admin.pages.index');
     }
@@ -89,9 +93,9 @@ class PagesController extends Controller
      */
     public function update(PageRequest $request, $id)
     {
-        $this->pageRepository->update($id, $request->all());
+        $page = $this->pageRepository->update($id, $request->all());
 
-        flash()->success('Success!', 'Page successfully updated.');
+        event(new PageWasUpdated($page));
 
         return redirect()->route('admin.pages.index');
     }
@@ -107,7 +111,7 @@ class PagesController extends Controller
         try {
             $this->pageRepository->delete($id);
         } catch (Exception $ex) {
-            flash()->error('Error!', $ex->getMessage());
+            event(new ExceptionOccurred($ex));
             
             return response()->json([
                 'error' => [
@@ -116,7 +120,7 @@ class PagesController extends Controller
             ]);
         }
 
-        flash()->success('Success!', 'Page successfully deleted.');
+        event(new PageWasDeleted());
 
         return response()->json();
     }

@@ -11,4 +11,11 @@ function flash($title = null, $message = null)
     return $flash->info($title, $message);
 }
 
+function app_settings($key = null)
+{
+    $appSettings = app('App\Storage\AppSettingRepositoryInterface');
+
+    return $key ? $appSettings->get($key) : $appSettings;
+}
+
 ?>

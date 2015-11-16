@@ -19,6 +19,7 @@ class PageTableSeeder extends Seeder
             'meta_keyword' => 'about',
             'meta_description' => 'About us',
             'published' => true,
+            'template_suffix' => 'about',
         ]);
         factory(Page::class)->create([
             'title' => 'Contact',
@@ -26,6 +27,7 @@ class PageTableSeeder extends Seeder
             'meta_keyword' => 'contact',
             'meta_description' => 'Contact us',
             'published' => true,
+            'template_suffix' => 'contact',
         ]);
     }
 }

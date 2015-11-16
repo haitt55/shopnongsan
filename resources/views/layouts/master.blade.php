@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keyword" content="{{ app_settings('meta_keyword') }}">
-    <meta name="description" content="{{ app_settings('meta_description') }}">
+    <meta name="keyword" content="@yield('meta_keyword')">
+    <meta name="description" content="@yield('meta_description')">
     <meta name="author" content="">
 
-    <title>{{ app_settings('page_title') }} - @yield('title')</title>
+    <title>{{ app_settings('name') }} - @yield('title')</title>
 
     @section('css')
     <!-- Bootstrap Core CSS -->

@@ -29,5 +29,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
 Route::get('articles.html', ['uses' => 'ArticlesController@index', 'as' => 'articles.index']);
 Route::get('articles/{slug}.html', ['uses' => 'ArticlesController@show', 'as' => 'articles.show']);
-Route::get('contact.html', ['uses' => 'MessagesController@create', 'as' => 'messages.create']);
 Route::get('{slug}.html', ['uses' => 'PagesController@show', 'as' => 'pages.show']);

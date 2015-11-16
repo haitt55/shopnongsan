@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Page;
 
 class PageTableSeeder extends Seeder
 {
@@ -11,7 +12,20 @@ class PageTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Page::truncate();
-        factory(App\Models\Page::class, 50)->create();
+        Page::truncate();
+        factory(Page::class)->create([
+            'title' => 'About',
+            'page_title' => 'About us',
+            'meta_keyword' => 'about',
+            'meta_description' => 'About us',
+            'published' => true,
+        ]);
+        factory(Page::class)->create([
+            'title' => 'Contact',
+            'page_title' => 'Contact us',
+            'meta_keyword' => 'contact',
+            'meta_description' => 'Contact us',
+            'published' => true,
+        ]);
     }
 }

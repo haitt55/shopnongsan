@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\AppSetting;
 
 class AppSettingTableSeeder extends Seeder
 {
@@ -11,17 +12,17 @@ class AppSettingTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\AppSetting::truncate();
+        AppSetting::truncate();
         $appSettings = [
             [
                 'key' => 'email',
-                'value' => 'name@example.com',
+                'value' => 'cuong@gtk.vn',
             ], [
                 'key' => 'phone',
-                'value' => '123.456.7890',
+                'value' => '0979.861.547',
             ], [
                 'key' => 'address',
-                'value' => '3481 Melrose Place Beverly Hills, CA 90210',
+                'value' => 'No. 1C, Lane 105/41 Yen Hoa, Cau Giay District, Hanoi',
             ], [
                 'key' => 'page_title',
                 'value' => 'GCMS',
@@ -34,7 +35,7 @@ class AppSettingTableSeeder extends Seeder
             ]
         ];
         foreach ($appSettings as $appSetting) {
-            App\Models\AppSetting::create($appSetting);
+            AppSetting::create($appSetting);
         }
     }
 }

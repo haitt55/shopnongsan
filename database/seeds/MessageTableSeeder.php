@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Message;
 
 class MessageTableSeeder extends Seeder
 {
@@ -11,7 +12,9 @@ class MessageTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\Message::truncate();
-        factory(App\Models\Message::class, 50)->create();
+        Message::truncate();
+        if (app()->environment() != 'production') {
+            factory(Message::class, 50)->create();
+        }
     }
 }

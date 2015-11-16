@@ -23,7 +23,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Page::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
-        'content' => $faker->paragraph(),
+        'content' => '<p>' . implode('</p><p>', $faker->paragraphs()) . '</p>',
         'page_title' => $faker->sentence(),
         'meta_keyword' => implode(',', $faker->words()),
         'meta_description' => $faker->text(),
@@ -35,7 +35,7 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'excerpt' => $faker->paragraph(),
-        'content' => $faker->paragraph(),
+        'content' => '<p>' . implode('</p><p>', $faker->paragraphs()) . '</p>',
         'author_id' => $faker->randomElement(App\Models\User::lists('id')->toArray()),
         'page_title' => $faker->sentence(),
         'meta_keyword' => implode(',', $faker->words()),
@@ -49,7 +49,7 @@ $factory->define(App\Models\Message::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->email,
         'phone_number' => $faker->phoneNumber,
-        'content' => $faker->paragraph(),
+        'content' => '<p>' . implode('</p><p>', $faker->paragraphs()) . '</p>',
         'unread' => $faker->boolean(),
     ];
 });

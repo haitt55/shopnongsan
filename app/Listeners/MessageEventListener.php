@@ -16,6 +16,12 @@ class MessageEventListener
         flash()->success('Success!', 'Message successfully deleted.');
     }
 
+    public function onSent($event)
+    {
+        flash()->success('Success!', 'Message successfully sent.');
+        // send notification email to admin
+    }
+
     public function subscribe($events)
     {
         $events->listen(
@@ -25,6 +31,10 @@ class MessageEventListener
         $events->listen(
             'App\Events\Message\WasDeleted',
             'App\Listeners\MessageEventListener@onDeleted'
+        );
+        $events->listen(
+            'App\Events\Message\WasSent',
+            'App\Listeners\MessageEventListener@onSent'
         );
     }
 }

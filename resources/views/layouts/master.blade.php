@@ -20,6 +20,9 @@
     <link href="/templates/web/business-casual/css/business-casual.css" rel="stylesheet">
     @show
 
+    <link href="/css/libs.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -52,7 +55,11 @@
     <script src="/templates/web/business-casual/js/bootstrap.min.js"></script>
     @show
 
+    <script src="/js/libs.js"></script>
+
     @yield('inline_scripts')
+
+    @include('layouts.partials.flash')
 
 </body>
 

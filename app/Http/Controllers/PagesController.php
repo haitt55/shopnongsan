@@ -6,14 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Storage\PageRepositoryInterface as PageRepository;
+use App\Http\Utilities\TemplateSuffix;
 
 class PagesController extends Controller
 {
     protected $pageRepository;
 
-    public function __construct(PageRepository $pageRepository)
+    protected $templateSuffix;
+
+    public function __construct(PageRepository $pageRepository, TemplateSuffix $templateSuffix)
     {
         $this->pageRepository = $pageRepository;
+        $this->templateSuffix = $templateSuffix;
     }
 
     /**
@@ -26,6 +30,6 @@ class PagesController extends Controller
     {
         $page = $this->pageRepository->findBySlug($slug);
 
-        return view('pages.show', compact('page'));
+        return view($this->templateSuffix->viewName($page->template_suffix), compact('page'));
     }
 }

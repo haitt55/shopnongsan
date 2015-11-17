@@ -13,5 +13,9 @@ interface RepositoryInterface
     public function update($id, $data);
 
     public function delete($id);
+
+    public function getByParams(array $params = [], $page = 1, $limit = 10);
+
+    public function criteria(array $params = []);
 }
 ?>

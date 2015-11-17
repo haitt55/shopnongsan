@@ -41,5 +41,27 @@ abstract class Repository implements RepositoryInterface
     {
         return $this->findOrFail($id)->delete();
     }
+
+    public function getByParams(array $params = [], $page = 1, $limit = 10)
+    {
+        $data = new \stdClass();
+        $data->page = $page;
+        $data->limit = $limit;
+        $data->totalItems = 0;
+        $data->items = [];
+        $items = $this->criteria($params)
+                ->skip($limit * ($page - 1))
+                ->take($limit)
+                ->get();
+        $data->totalItems = $this->criteria($params)->count();
+        $data->items = $items->all();
+
+        return $data;
+    }
+
+    public function criteria(array $params = [])
+    {
+        return $this->model;
+    }
 }
 ?>

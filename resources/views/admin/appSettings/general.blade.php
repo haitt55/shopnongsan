@@ -47,6 +47,9 @@
                                     <label for="meta_description">Meta Description</label>
                                     <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $appSettings['meta_description']) }}">
                                 </div>
+                                <div>
+                                    @include('templates.mappicker')
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                 </div>

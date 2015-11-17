@@ -40,6 +40,12 @@ class AppSettingTableSeeder extends Seeder
             ], [
                 'key' => 'meta_description',
                 'value' => 'GCMS is an awesome CMS!',
+            ], [
+                'key' => 'latitude',
+                'value' => '21.021886',
+            ], [
+                'key' => 'longitude',
+                'value' => '105.794944',
             ]
         ];
         foreach ($appSettings as $appSetting) {

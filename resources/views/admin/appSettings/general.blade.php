@@ -54,10 +54,11 @@
                                     <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $appSettings['meta_description']) }}">
                                 </div>
                                 <div>
+                                    <label>Google Maps</label>
                                     <fieldset class="gllpLatlonPicker">
                                         <div class="gllpMap">Google Maps</div>
-                                        <input type="text" class="hidden gllpLatitude" value="21.0277644"/>
-                                        <input type="text" class="hidden gllpLongitude" value="105.83415979999995"/>
+                                        <input type="text" name="latitude" class="hidden gllpLatitude" value="{{ old('latitude', $appSettings['latitude']) }}"/>
+                                        <input type="text" name="longitude" class="hidden gllpLongitude" value="{{ old('longitude', $appSettings['longitude']) }}"/>
                                         <input type="text" class="hidden gllpZoom" value="14"/>
                                         <input type="button" class="hidden gllpUpdateButton" value="update map">
                                         <br>

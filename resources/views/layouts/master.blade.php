@@ -18,6 +18,8 @@
 
     <!-- Custom CSS -->
     <link href="/templates/web/business-casual/css/business-casual.css" rel="stylesheet">
+
+    <link href="/plugins/google-map-picker/css/jquery-gmaps-latlon-picker.css" rel="stylesheet">
     @show
 
     <link href="/css/libs.css" rel="stylesheet">
@@ -53,6 +55,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/templates/web/business-casual/js/bootstrap.min.js"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/plugins/google-map-picker/js/jquery-gmaps-latlon-picker.js"></script>
     @show
 
     <script src="/js/libs.js"></script>

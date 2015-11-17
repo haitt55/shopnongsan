@@ -18,7 +18,14 @@
             <hr>
         </div>
         <div class="col-md-8">
-            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+            <fieldset class="gllpLatlonPicker">
+                <div class="gllpMap pull-right">Google Maps</div>
+                <input type="text" name="latitude" class="hidden gllpLatitude" value="{{ app_settings('latitude') }}"/>
+                <input type="text" name="longitude" class="hidden gllpLongitude" value="{{ app_settings('longitude') }}"/>
+                <input type="text" class="hidden gllpZoom" value="14"/>
+                <input type="button" class="hidden gllpUpdateButton" value="update map">
+                <br>
+            </fieldset>
         </div>
         <div class="col-md-4">
             <p>Phone:

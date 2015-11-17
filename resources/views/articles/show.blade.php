@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Article')
+@section('title', $article->page_title)
+
+@section('meta_keyword', $article->meta_keyword)
+
+@section('meta_description', $article->meta_description)
 
 @section('content')
 
@@ -9,16 +13,16 @@
             <div class="col-lg-12">
                 <hr>
                 <h2 class="intro-text text-center">Company
-                    <strong>article</strong>
+                    <strong>blog</strong>
                 </h2>
                 <hr>
             </div>
             <div class="col-lg-12 text-center">
-                <img class="img-responsive img-border img-full" src="/templates/web/business-casual/img/slide-1.jpg" alt="">
                 <h2>{{ $article->title }}
                     <br>
-                    <small>{{ date('d/m/Y', strtotime($article->created_at)) }}</small>
+                    <small>{{ date('F d, Y', strtotime($article->created_at)) }}</small>
                 </h2>
+                <img class="img-responsive img-border img-full" src="/templates/web/business-casual/img/slide-1.jpg" alt="">
             </div>
             <div class="col-lg-12">
                 {!! $article->content !!}

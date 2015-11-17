@@ -3,22 +3,24 @@
 @section('title', '404 Not Found')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">404 Page Not Found</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+
+<div class="row">
+    <div class="box">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">404
+                <strong>Not Found</strong>
+            </h2>
+            <hr>
         </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <p>We looked everywhere but we couldn't find it!</p>
-                <p class="text-center">
-                    <a href="{{ route('home.dashboard') }}" class="btn btn-primary">Dashboard</a>
-                </p>
-            </div>
+        <div class="col-md-12 text-center">
+            <p>We looked everywhere but we couldn't find it!</p>
+            <p>
+                <a href="{{ route('home.index') }}" class="btn btn-primary">Home</a>
+            </p>
         </div>
+        <div class="clearfix"></div>
     </div>
-    <!-- /.container-fluid -->
+</div>
+
 @endsection

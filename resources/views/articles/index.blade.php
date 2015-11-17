@@ -13,7 +13,6 @@
             </h2>
             <hr>
         </div>
-        
         @foreach ($articles as $article)
         <div class="col-lg-12 text-center">
             <img class="img-responsive img-border img-full" src="/templates/web/business-casual/img/slide-1.jpg" alt="">
@@ -26,7 +25,6 @@
             <hr>
         </div>
         @endforeach
-
         <div class="col-lg-12 text-center">
             <ul class="pager">
                 @if ($articles->currentPage() > 1)

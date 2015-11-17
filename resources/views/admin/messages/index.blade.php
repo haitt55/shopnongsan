@@ -54,7 +54,7 @@
                                                 <span class="label label-default">Read</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $message->updated_at }}</td>
+                                            <td>{{ $message->created_at }}</td>
                                             <td>
                                                 <a href="{{ route('admin.messages.show', $message->id) }}" class="btn btn-info" title="Show"><i class="fa fa-info"></i></a>
                                             </td>

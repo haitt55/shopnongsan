@@ -12,7 +12,9 @@
     <div class="box">
         <div class="col-lg-12">
             <hr>
-            <h2 class="intro-text text-center">{{ $page->title }}</h2>
+            <h2 class="intro-text text-center">{{ $page->title }}
+                <strong>{{ app_settings('name') }}</strong>
+            </h2>
             <hr>
         </div>
         <div class="col-md-6">

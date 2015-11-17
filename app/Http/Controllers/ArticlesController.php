@@ -24,7 +24,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = $this->articleRepository->all();
+        $articles = $this->articleRepository->criteria()->paginate(3);
 
         return view('articles.index', compact('articles'));
     }

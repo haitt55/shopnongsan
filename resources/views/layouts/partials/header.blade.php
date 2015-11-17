@@ -1,4 +1,4 @@
-<div class="brand">{{ app_settings('page_title') }}</div>
+<div class="brand">{{ app_settings('name') }}</div>
 <div class="address-bar">{{ app_settings('address') }} | {{ app_settings('phone') }}</div>
 
 <!-- Navigation -->

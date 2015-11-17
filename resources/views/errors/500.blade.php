@@ -3,22 +3,24 @@
 @section('title', '500 Something Went Wrong')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">500 Something Went Wrong</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+
+<div class="row">
+    <div class="box">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">500
+                <strong>Something Went Wrong</strong>
+            </h2>
+            <hr>
         </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <p>But we are working to fix on it!</p>
-                <p class="text-center">
-                    <a href="{{ route('home.dashboard') }}" class="btn btn-primary">Dashboard</a>
-                </p>
-            </div>
+        <div class="col-md-12 text-center">
+            <p>But we are working to fix on it!</p>
+            <p>
+                <a href="{{ route('home.index') }}" class="btn btn-primary">Home</a>
+            </p>
         </div>
+        <div class="clearfix"></div>
     </div>
-    <!-- /.container-fluid -->
+</div>
+
 @endsection

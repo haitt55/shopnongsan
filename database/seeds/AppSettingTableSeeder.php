@@ -15,6 +15,14 @@ class AppSettingTableSeeder extends Seeder
         AppSetting::truncate();
         $appSettings = [
             [
+                'key' => 'name',
+                'value' => 'GCMS',
+            ],
+            [
+                'key' => 'company',
+                'value' => 'GTK',
+            ],
+            [
                 'key' => 'email',
                 'value' => 'cuong@gtk.vn',
             ], [
@@ -25,13 +33,13 @@ class AppSettingTableSeeder extends Seeder
                 'value' => 'No. 1C, Lane 105/41 Yen Hoa, Cau Giay District, Hanoi',
             ], [
                 'key' => 'page_title',
-                'value' => 'GCMS',
+                'value' => 'An awesome CMS!',
             ], [
                 'key' => 'meta_keyword',
-                'value' => '',
+                'value' => 'awesome,cms',
             ], [
                 'key' => 'meta_description',
-                'value' => '',
+                'value' => 'GCMS is an awesome CMS!',
             ]
         ];
         foreach ($appSettings as $appSetting) {

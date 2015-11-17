@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keyword" content="{{ app_settings('meta_keyword') }}">
-    <meta name="description" content="{{ app_settings('meta_description') }}">
+    <meta name="keyword" content="@yield('meta_keyword')">
+    <meta name="description" content="@yield('meta_description')">
     <meta name="author" content="">
 
-    <title>{{ app_settings('page_title') }} - @yield('title')</title>
+    <title>{{ app_settings('name') }} - @yield('title')</title>
 
     @section('css')
     <!-- Bootstrap Core CSS -->
@@ -19,6 +19,9 @@
     <!-- Custom CSS -->
     <link href="/templates/web/business-casual/css/business-casual.css" rel="stylesheet">
     @show
+
+    <link href="/css/libs.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -52,7 +55,11 @@
     <script src="/templates/web/business-casual/js/bootstrap.min.js"></script>
     @show
 
+    <script src="/js/libs.js"></script>
+
     @yield('inline_scripts')
+
+    @include('layouts.partials.flash')
 
 </body>
 

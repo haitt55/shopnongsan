@@ -54,6 +54,16 @@
                                         <label><input type="checkbox" name="published" id="published" value="1"{{ old('published', $page->published) ? ' checked="checked"' : '' }}> Visible</label>
                                     </div>
                                 </div>
+                                @inject('templateSuffixes', 'App\Http\Utilities\TemplateSuffix')
+                                <div class="form-group">
+                                    <label for="template_suffix">Template</label>
+                                    <select id="template_suffix" name="template_suffix" class="form-control">
+                                        <option value="">page</option>
+                                        @foreach($templateSuffixes::all() as $key => $value)
+                                            <option value="{{ $key }}"{{ (old('template_suffix', $page->template_suffix) == $key) ? ' selected="selected"' : '' }}>{{ $value }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                 </div>

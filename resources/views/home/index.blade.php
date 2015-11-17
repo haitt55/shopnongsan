@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'Home')
+@section('title', app_settings('page_title'))
+
+@section('meta_keyword', app_settings('meta_keyword'))
+
+@section('meta_description', app_settings('meta_description'))
 
 @section('content')
 
@@ -39,11 +43,11 @@
             <h2 class="brand-before">
                 <small>Welcome to</small>
             </h2>
-            <h1 class="brand-name">{{ app_settings('page_title') }}</h1>
+            <h1 class="brand-name">{{ app_settings('name') }}</h1>
             <hr class="tagline-divider">
             <h2>
                 <small>By
-                    <strong>GTK</strong>
+                    <strong>{{ app_settings('company') }}</strong>
                 </small>
             </h2>
         </div>

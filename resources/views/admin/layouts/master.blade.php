@@ -22,7 +22,6 @@
 
     <!-- Custom CSS -->
     <link href="/templates/admin/sbadmin2/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="/plugins/google-map-picker/css/jquery-gmaps-latlon-picker.css" rel="stylesheet">
     <link href="/css/libs.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
@@ -71,8 +70,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/templates/admin/sbadmin2/dist/js/sb-admin-2.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="/plugins/google-map-picker/js/jquery-gmaps-latlon-picker.js"></script>
     <script src="/js/libs.js"></script>
 
     @yield('inline_scripts')

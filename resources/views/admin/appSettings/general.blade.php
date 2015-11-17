@@ -2,6 +2,12 @@
 
 @section('title', 'Settings')
 
+@section('css')
+    @parent
+
+    <link href="/plugins/google-map-picker/css/jquery-gmaps-latlon-picker.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -48,7 +54,14 @@
                                     <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $appSettings['meta_description']) }}">
                                 </div>
                                 <div>
-                                    @include('templates.mappicker')
+                                    <fieldset class="gllpLatlonPicker">
+                                        <div class="gllpMap">Google Maps</div>
+                                        <input type="text" class="hidden gllpLatitude" value="21.0277644"/>
+                                        <input type="text" class="hidden gllpLongitude" value="105.83415979999995"/>
+                                        <input type="text" class="hidden gllpZoom" value="14"/>
+                                        <input type="button" class="hidden gllpUpdateButton" value="update map">
+                                        <br>
+                                    </fieldset>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
@@ -64,4 +77,11 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+@endsection
+
+@section('javascript')
+    @parent
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="/plugins/google-map-picker/js/jquery-gmaps-latlon-picker.js"></script>
 @endsection

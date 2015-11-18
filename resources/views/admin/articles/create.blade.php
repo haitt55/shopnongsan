@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="image">Featured image</label>
+                                    <label for="photo">Featured image</label>
                                     <div class="dropzone" id="dropzone"></div>
                                 </div>
                                 <div class="form-group">
@@ -80,7 +80,6 @@
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
                 <!-- /.panel-body -->
@@ -111,7 +110,16 @@
             minHeight: null,
             maxHeight: null
         });
-        $("div#dropzone").dropzone({ url: "/file/post" });
+        Dropzone.autoDiscover = false;
+        $("#dropzone").dropzone({
+            url: "/files",
+            addRemoveLinks : true,
+            maxFiles: 1,
+            uploadMultiple: false,
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf_token"]').attr('content')
+            }
+        });
     });
     </script>
 @endsection

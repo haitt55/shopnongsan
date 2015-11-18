@@ -25,6 +25,7 @@
                 <img class="img-responsive img-border img-full" src="/templates/web/business-casual/img/slide-1.jpg" alt="">
             </div>
             <div class="col-lg-12">
+                <br>
                 {!! $article->content !!}
                 <hr>
             </div>

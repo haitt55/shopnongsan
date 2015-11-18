@@ -2,12 +2,6 @@
 
 @section('title', 'Settings')
 
-@section('css')
-    @parent
-
-    <link href="/plugins/google-map-picker/css/jquery-gmaps-latlon-picker.css" rel="stylesheet">
-@endsection
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -84,5 +78,5 @@
     @parent
 
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="/plugins/google-map-picker/js/jquery-gmaps-latlon-picker.js"></script>
+    <script src="/js/gmaps-latlon.js"></script>
 @endsection

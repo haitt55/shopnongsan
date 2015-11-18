@@ -13,12 +13,16 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-       .scripts([
+        .scripts([
             'libs/sweetalert-dev.js',
             'libs/summernote.js'
         ], './public/js/libs.js')
-       .styles([
+        .scripts([
+            '/libs/gmaps-latlon.js',
+        ], './public/js/gmaps-latlon.js')
+        .styles([
             'libs/sweetalert.css',
-            'libs/summernote.css'
+            'libs/summernote.css',
+            'libs/gmaps-latlon.css'
         ], './public/css/libs.css');
 });

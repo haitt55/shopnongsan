@@ -72,8 +72,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo">Featured image</label>
-                                    <div class="dropzone" id="dropzone"></div>
+                                    <label for="photo">Featured Image</label>
+                                    <div class="dropzone" id="photo"></div>
+                                    <input type="hidden" name="image">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
@@ -110,16 +111,21 @@
             minHeight: null,
             maxHeight: null
         });
-        Dropzone.autoDiscover = false;
-        $("#dropzone").dropzone({
-            url: "/files",
-            addRemoveLinks : true,
+        Dropzone.options.photo = {
+            url: "{{ route('admin.articles.addPhoto') }}",
+            paramName: "photo", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            acceptedFiles: 'image/*',
             maxFiles: 1,
-            uploadMultiple: false,
             headers: {
                 'X-CSRF-Token': $('meta[name="csrf_token"]').attr('content')
+            },
+            init: function() {
+                this.on("success", function(file, response) {
+                    $('input[name="image"]').val(response.fileName);
+                });
             }
-        });
+        };
     });
     </script>
 @endsection

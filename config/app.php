@@ -149,6 +149,7 @@ return [
         App\Storage\Eloquent\StorageServiceProvider::class,
         App\Providers\ValidatorServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -199,6 +200,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Illuminate\Html\FormFacade::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
 
     ],
 

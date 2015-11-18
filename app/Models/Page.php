@@ -16,8 +16,8 @@ class Page extends BaseModel implements SluggableInterface
         'title', 'content', 'page_title', 'meta_keyword', 'meta_description', 'published'
     ];
 
-    public function scopeBySlug($query, $slug)
+    public static function findBySlug($slug)
     {
-        return $query->whereSlug($slug);
+        return static::whereSlug($slug)->firstOrFail();
     }
 }

@@ -14,16 +14,21 @@ class Article extends BaseModel implements SluggableInterface
 
     protected $fillable = [
         'title', 'excerpt', 'content', 'author_id', 'page_title', 'meta_keyword', 
-        'meta_description', 'published'
+        'meta_description', 'published', 'image'
     ];
 
-    public function scopeBySlug($query, $slug)
+    public static function findBySlug($slug)
     {
-        return $query->whereSlug($slug);
+        return static::whereSlug($slug)->firstOrFail();
     }
 
     public function author()
     {
         return $this->belongsTo('App\Models\User', 'author_id');
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->wherePublished(true);
     }
 }

@@ -49,7 +49,9 @@
                                     <tbody>
                                         @foreach ($articles as $article)
                                         <tr>
-                                            <td></td>
+                                            <td>
+                                                <img src="/uploads/images/articles/tn-{{ $article->image }}" alt="" width="50">
+                                            </td>
                                             <td><a href="{{ route('admin.articles.show', $article->id) }}">{{ $article->title }}</td>
                                             <td>{{ $article->author->name or '' }}</td>
                                             <td>{{ $article->updated_at }}</td>

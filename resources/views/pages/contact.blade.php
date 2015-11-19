@@ -18,7 +18,9 @@
             <hr>
         </div>
         <div class="col-md-8">
-            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+            <div id="map"></div>
+            <input type="text" id="latitude" name="latitude" class="hidden" value="{{ old('latitude', app_settings('latitude')) }}"/>
+            <input type="text" id="longitude" name="longitude" class="hidden" value="{{ old('longitude', app_settings('longitude')) }}"/>
         </div>
         <div class="col-md-4">
             <p>Phone:
@@ -75,4 +77,42 @@
     </div>
 </div>
 
+@endsection
+
+@section('inline_scripts')
+    @parent
+    <script>
+        var latitude = parseFloat("{{ app_settings('latitude') }}");
+        var longitude = parseFloat("{{ app_settings('longitude') }}");
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: {lat: latitude, lng: longitude}
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: latitude, lng: longitude}
+            });
+            marker.addListener('click', toggleBounce);
+            marker.addListener('dragend', function(evt){
+                $('#latitude').val(evt.latLng.lat().toFixed(5));
+                $('#longitude').val(evt.latLng.lng().toFixed(5));
+            })
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={!! env('GOOGLE_MAP_API_KEY') !!}&signed_in=true&callback=initMap"></script>
 @endsection

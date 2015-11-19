@@ -47,6 +47,13 @@
                                     <label for="meta_description">Meta Description</label>
                                     <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ old('meta_description', $appSettings['meta_description']) }}">
                                 </div>
+                                <div>
+                                    <label>Google Maps</label>
+                                    <div id="map"></div>
+                                    <input type="text" id="latitude" name="latitude" class="hidden" value="{{ old('latitude', $appSettings['latitude']) }}"/>
+                                    <input type="text" id="longitude" name="longitude" class="hidden" value="{{ old('longitude', $appSettings['longitude']) }}"/>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
@@ -61,4 +68,42 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+@endsection
+
+@section('javascript')
+    @parent
+    <script>
+        var latitude = parseFloat("{{ $appSettings['latitude'] }}");
+        var longitude = parseFloat("{{ $appSettings['longitude'] }}");
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: {lat: latitude, lng: longitude}
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: latitude, lng: longitude}
+            });
+            marker.addListener('click', toggleBounce);
+            marker.addListener('dragend', function(evt){
+                $('#latitude').val(evt.latLng.lat().toFixed(5));
+                $('#longitude').val(evt.latLng.lng().toFixed(5));
+            })
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={!! env('GOOGLE_MAP_API_KEY') !!}&signed_in=true&callback=initMap"></script>
 @endsection

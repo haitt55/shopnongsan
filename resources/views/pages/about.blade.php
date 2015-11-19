@@ -17,10 +17,7 @@
             </h2>
             <hr>
         </div>
-        <div class="col-md-6">
-            <img class="img-responsive img-border-left" src="/templates/web/business-casual/img/slide-2.jpg" alt="">
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             {!! $page->content !!}
         </div>
         <div class="clearfix"></div>

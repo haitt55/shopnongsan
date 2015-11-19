@@ -8,6 +8,13 @@
 
 @section('content')
 
+<style>
+    #map {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
 <div class="row">
     <div class="box">
         <div class="col-lg-12">
@@ -18,14 +25,9 @@
             <hr>
         </div>
         <div class="col-md-8">
-            <fieldset class="gllpLatlonPicker">
-                <div class="gllpMap pull-right">Google Maps</div>
-                <input type="text" name="latitude" class="hidden gllpLatitude" value="{{ app_settings('latitude') }}"/>
-                <input type="text" name="longitude" class="hidden gllpLongitude" value="{{ app_settings('longitude') }}"/>
-                <input type="text" class="hidden gllpZoom" value="14"/>
-                <input type="button" class="hidden gllpUpdateButton" value="update map">
-                <br>
-            </fieldset>
+            <div id="map"></div>
+            <input type="text" id="latitude" name="latitude" class="hidden" value="{{ old('latitude', app_settings('latitude')) }}"/>
+            <input type="text" id="longitude" name="longitude" class="hidden" value="{{ old('longitude', app_settings('longitude')) }}"/>
         </div>
         <div class="col-md-4">
             <p>Phone:
@@ -82,4 +84,42 @@
     </div>
 </div>
 
+@endsection
+
+@section('inline_scripts')
+    @parent
+    <script>
+        var latitude = parseFloat("{{ app_settings('latitude') }}");
+        var longitude = parseFloat("{{ app_settings('longitude') }}");
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: {lat: latitude, lng: longitude}
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: latitude, lng: longitude}
+            });
+            marker.addListener('click', toggleBounce);
+            marker.addListener('dragend', function(evt){
+                $('#latitude').val(evt.latLng.lat().toFixed(5));
+                $('#longitude').val(evt.latLng.lng().toFixed(5));
+            })
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key={!! env('GOOGLE_MAP_API_KEY') !!}&signed_in=true&callback=initMap"></script>
 @endsection

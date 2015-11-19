@@ -53,10 +53,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/templates/web/business-casual/js/bootstrap.min.js"></script>
-
-    <!-- Google maps -->
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="/js/gmaps-latlon.js"></script>
     @show
 
     <script src="/js/libs.js"></script>

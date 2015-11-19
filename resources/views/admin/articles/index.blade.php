@@ -50,7 +50,7 @@
                                         @foreach ($articles as $article)
                                         <tr>
                                             <td class="text-center">
-                                                <img src="/uploads/images/articles/tn-{{ $article->image }}" alt="" width="50" onerror='this.style.display="none"'>
+                                                {!! $article->image ? image(config('article.image_path') . '/tn-' . $article->image, array('width' => 50), '/img/no_image.png') : '<img src="/img/no_image.png" width="50">' !!}
                                             </td>
                                             <td><a href="{{ route('admin.articles.show', $article->id) }}">{{ $article->title }}</td>
                                             <td>{{ $article->author->name or '' }}</td>

@@ -63,7 +63,7 @@ class ArticlesController extends Controller
     public function addPhoto(UploadPhotoRequest $request)
     {
         try {
-            $photo = Photo::fromFile($request->file('photo'), 'uploads/images/articles');
+            $photo = Photo::fromFile($request->file('photo'), config('article.image_path'));
         } catch (Exception $ex) {
             return response()->json([
                 'error' => [
@@ -78,7 +78,7 @@ class ArticlesController extends Controller
     public function deletePhoto(Request $request)
     {
         try {
-            Photo::delete($request->get('fileName'), 'uploads/images/articles');
+            Photo::delete($request->get('fileName'), config('article.image_path'));
         } catch (Exception $ex) {
             return response()->json([
                 'error' => [

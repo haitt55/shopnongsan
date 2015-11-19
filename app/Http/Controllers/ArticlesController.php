@@ -24,7 +24,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = $this->articleRepository->getPublishedArticles()->paginate(3);
+        $articles = $this->articleRepository->getPublishedArticles()->paginate(config('article.per_page'));
 
         return view('articles.index', compact('articles'));
     }

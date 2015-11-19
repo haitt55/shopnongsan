@@ -22,7 +22,7 @@
                     <br>
                     <small>{{ date('F d, Y', strtotime($article->created_at)) }}</small>
                 </h2>
-                <img class="img-responsive img-border img-full" src="/uploads/images/articles/{{ $article->image }}" alt="">
+                {!! $article->image ? image(config('article.image_path') . '/' . $article->image, array('class' => 'img-responsive img-border img-full')) : '' !!}
             </div>
             <div class="col-lg-12">
                 <br>

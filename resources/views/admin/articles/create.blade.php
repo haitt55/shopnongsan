@@ -136,9 +136,9 @@
                 var thisDropzone = this;
                 var fileName = $('input[name="image"]').val();
                 if (fileName != '') {
-                    var mockFile = { name: '/uploads/images/articles/' + fileName, size: 12345 };
+                    var mockFile = { name: '{{ config("article.image_path") }}/' + fileName, size: 12345 };
                     thisDropzone.emit('addedfile', mockFile);
-                    thisDropzone.emit('thumbnail', mockFile, '/uploads/images/articles/tn-' + fileName);
+                    thisDropzone.emit('thumbnail', mockFile, '{{ config("article.image_path") }}/tn-' + fileName);
                     thisDropzone.emit("complete", mockFile);
                     var existingFileCount = 1;
                     thisDropzone.options.maxFiles = thisDropzone.options.maxFiles - existingFileCount;

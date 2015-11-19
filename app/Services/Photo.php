@@ -21,7 +21,7 @@ class Photo
     public static function fromFile(UploadedFile $file, $baseDir = null)
     {
         $photo = new static;
-        $photo->baseDir = empty($baseDir) ? 'uploads/images' : $baseDir;
+        $photo->baseDir = public_path($baseDir);
         $photo->file = $file;
         $photo->name = $photo->fileName();
         $photo->path = $photo->filePath();

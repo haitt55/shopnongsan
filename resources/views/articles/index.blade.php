@@ -15,7 +15,7 @@
         </div>
         @foreach ($articles as $article)
         <div class="col-lg-12 text-center">
-            <img class="img-responsive img-border img-full" src="/uploads/images/articles/{{ $article->image }}" alt="">
+            {!! $article->image ? image(config('article.image_path') . '/' . $article->image, array('class' => 'img-responsive img-border img-full')) : '' !!}
             <h2>{{ $article->title }}
                 <br>
                 <small>{{ date('F d, Y', strtotime($article->created_at)) }}</small>

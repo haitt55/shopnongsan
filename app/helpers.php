@@ -18,4 +18,17 @@ function app_settings($key = null)
     return $key ? $appSettings->get($key) : $appSettings;
 }
 
+function image($src, $htmlOptions = array(), $noImageSrc = null)
+{
+    $additionalHtml = '';
+    foreach ($htmlOptions as $k => $v) {
+        $additionalHtml .= ' ' . $k . '="' . $v . '"';
+    }
+    if (file_exists(public_path($src))) {
+        return '<img src="' . $src . '"' . $additionalHtml . ($noImageSrc ? ' onerror=\'this.src="' . $noImageSrc . '"\'' : '') . '>';
+    }
+
+    return false;
+}
+
 ?>

@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA","file":"app.css","sourceRoot":"/source/","sourcesContent":[]}
+{"version":3,"sources":["../../../stdin"],"names":[],"mappings":"AACA;EACE,YAAY;EACZ,cAAc,EACf","file":"app.css","sourcesContent":["// @import \"node_modules/bootstrap-sass/assets/stylesheets/bootstrap\";\n#map {\n  width: 100%;\n  height: 300px;\n}\n\n"],"sourceRoot":"/source/"}

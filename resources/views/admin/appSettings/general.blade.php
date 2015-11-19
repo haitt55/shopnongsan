@@ -2,13 +2,6 @@
 
 @section('title', 'Settings')
 
-<style>
-    #map {
-        width: 100%;
-        height: 400px;
-    }
-</style>
-
 @section('content')
     <div class="row">
         <div class="col-lg-12">

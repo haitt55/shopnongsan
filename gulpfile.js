@@ -17,12 +17,8 @@ elixir(function(mix) {
             'libs/sweetalert-dev.js',
             'libs/summernote.js'
         ], './public/js/libs.js')
-        .scripts([
-            '/libs/gmaps-latlon.js',
-        ], './public/js/gmaps-latlon.js')
         .styles([
             'libs/sweetalert.css',
-            'libs/summernote.css',
-            'libs/gmaps-latlon.css'
+            'libs/summernote.css'
         ], './public/css/libs.css');
 });

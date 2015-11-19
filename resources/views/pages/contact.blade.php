@@ -8,13 +8,6 @@
 
 @section('content')
 
-<style>
-    #map {
-        width: 100%;
-        height: 300px;
-    }
-</style>
-
 <div class="row">
     <div class="box">
         <div class="col-lg-12">

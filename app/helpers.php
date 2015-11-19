@@ -27,6 +27,9 @@ function image($src, $htmlOptions = array(), $noImageSrc = null)
     if (file_exists(public_path($src))) {
         return '<img src="' . $src . '"' . $additionalHtml . ($noImageSrc ? ' onerror=\'this.src="' . $noImageSrc . '"\'' : '') . '>';
     }
+    if ($noImageSrc) {
+        return '<img src="' . $noImageSrc . '" width="50">';
+    }
 
     return false;
 }

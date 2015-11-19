@@ -18,10 +18,10 @@ class Photo
 
     public $thumbnail_path;
 
-    public static function fromFile(UploadedFile $file, $baseDir = null)
+    public static function fromFile(UploadedFile $file, $baseDir)
     {
         $photo = new static;
-        $photo->baseDir = public_path($baseDir);
+        $photo->baseDir = $baseDir;
         $photo->file = $file;
         $photo->name = $photo->fileName();
         $photo->path = $photo->filePath();

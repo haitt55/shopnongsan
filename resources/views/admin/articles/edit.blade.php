@@ -169,6 +169,7 @@
                 return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
             },
             init: function() {
+                @if ($article->image && file_exists(public_path(config('article.image_path') . '/' . $article->image)))
                 var thisDropzone = this;
                 var fileName = $('input[name="image"]').val();
                 if (fileName != '') {
@@ -179,6 +180,7 @@
                     var existingFileCount = 1;
                     thisDropzone.options.maxFiles = thisDropzone.options.maxFiles - existingFileCount;
                 }
+                @endif
                 this.on("success", function(file, response) {
                     $('input[name="image"]').val(response.fileName);
                 });

@@ -49,8 +49,8 @@
                                     <tbody>
                                         @foreach ($articles as $article)
                                         <tr>
-                                            <td>
-                                                <img src="/uploads/images/articles/tn-{{ $article->image }}" alt="" width="50">
+                                            <td class="text-center">
+                                                <img src="/uploads/images/articles/tn-{{ $article->image }}" alt="" width="50" onerror='this.style.display="none"'>
                                             </td>
                                             <td><a href="{{ route('admin.articles.show', $article->id) }}">{{ $article->title }}</td>
                                             <td>{{ $article->author->name or '' }}</td>

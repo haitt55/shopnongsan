@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
         Route::resource('pages', 'PagesController');
         Route::resource('articles', 'ArticlesController');
         Route::post('articles/addPhoto', ['uses' => 'ArticlesController@addPhoto', 'as' => 'admin.articles.addPhoto']);
+        Route::post('articles/deletehoto', ['uses' => 'ArticlesController@deletePhoto', 'as' => 'admin.articles.deletePhoto']);
         Route::resource('messages', 'MessagesController', ['only' => ['index', 'show', 'destroy']]);
 
         Route::get('appSettings/general', ['uses' => 'AppSettingsController@general', 'as' => 'admin.appSettings.general']);

@@ -27,7 +27,7 @@
                         <div class="col-lg-12">
                             <form method="POST" action="{{ route('admin.users.update', $user->id) }}" role="form">
                                 @include('admin.layouts.partials.errors')
-                                {{ csrf_field() }}
+                                {!! csrf_field() !!}
                                 {!! method_field('put') !!}
                                 <div class="form-group">
                                     <label for="name">Name:</label>

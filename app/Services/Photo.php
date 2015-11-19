@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Image;
+use File;
 
 class Photo
 {
@@ -65,6 +66,12 @@ class Photo
     protected function makeThumbnail()
     {
         Image::make($this->filePath())->fit(200)->save($this->thumbnailPath());
+    }
+
+    public static function delete($fileName, $path)
+    {
+        File::delete($path . '/' . $fileName);
+        File::delete($path . '/tn-' . $fileName);
     }
 }
 

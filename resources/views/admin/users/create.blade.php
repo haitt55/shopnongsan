@@ -27,7 +27,7 @@
                         <div class="col-lg-12">
                             <form method="POST" action="{{ route('admin.users.store') }}" role="form">
                                 @include('admin.layouts.partials.errors')
-                                {{ csrf_field() }}
+                                {!! csrf_field() !!}
                                 <div class="form-group">
                                     <label for="name">Name:</label>
                                     <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">

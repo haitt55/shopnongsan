@@ -75,6 +75,21 @@ class ArticlesController extends Controller
         return response()->json(['fileName' => $photo->name]);
     }
 
+    public function deletePhoto(Request $request)
+    {
+        try {
+            Photo::delete($request->get('fileName'), 'uploads/images/articles');
+        } catch (Exception $ex) {
+            return response()->json([
+                'error' => [
+                    'message' => $ex->getMessage(),
+                ]
+            ]);
+        }
+
+        return response()->json();
+    }
+
     /**
      * Display the specified resource.
      *

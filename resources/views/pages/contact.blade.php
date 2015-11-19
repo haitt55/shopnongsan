@@ -46,7 +46,7 @@
             {!! $page->content !!}
             <form method="POST" action="{{ route('messages.store') }}" role="form">
                 @include('admin.layouts.partials.errors')
-                {{ csrf_field() }}
+                {!! csrf_field() !!}
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label for="title">Name</label>

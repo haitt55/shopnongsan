@@ -9,7 +9,7 @@
     <meta name="keyword" content="@yield('meta_keyword')">
     <meta name="description" content="@yield('meta_description')">
     <meta name="author" content="">
-    {!! csrf_field() !!}
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
 
     <title>{{ app_settings('name') }} - @yield('title')</title>
 

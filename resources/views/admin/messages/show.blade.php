@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="content">Content</label>
-                                    <p class="form-control-static">{{ $message->content }}</p>
+                                    <div class="form-control-static">{!! $message->content !!}</div>
                                 </div>
                             </form>
                         </div>

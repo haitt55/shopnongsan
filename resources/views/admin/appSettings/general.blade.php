@@ -70,8 +70,9 @@
     <!-- /.row -->
 @endsection
 
-@section('javascript')
+@section('inline_scripts')
     @parent
+
     <script>
         var latitude = parseFloat("{{ $appSettings['latitude'] }}");
         var longitude = parseFloat("{{ $appSettings['longitude'] }}");
@@ -105,5 +106,5 @@
         }
     </script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key={!! config('services.gooogle.api_key') !!}&signed_in=true&callback=initMap"></script>
+            src="https://maps.googleapis.com/maps/api/js?key={!! config('services.google.api_key') !!}&signed_in=true&callback=initMap"></script>
 @endsection

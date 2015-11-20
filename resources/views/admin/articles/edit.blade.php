@@ -161,8 +161,8 @@
             headers: {
                 'X-CSRF-Token': $('meta[name="csrf_token"]').attr('content')
             },
-            thumbnailWidth: 200,
-            thumbnailHeight: 200,
+            thumbnailWidth: {{ config('article.thumbnail_width') }},
+            thumbnailHeight: {{ config('article.thumbnail_height') }},
             addRemoveLinks: true,
             removedfile: function(file) {
                 var _ref;
@@ -196,9 +196,6 @@
                         dataType: 'html',
                         headers: {
                             'X-CSRF-Token': $('meta[name="csrf_token"]').attr('content')
-                        },
-                        success: function(data) {
-                            console.log(data);
                         }
                     });
                 });
